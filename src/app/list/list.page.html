@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      Lista de Livros
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  
+  <ion-item>
+    <ion-input type ="text" placeholder = "Livro e Autor" [(ngModel)] = "livroName"></ion-input>
+    <div class=" item-note" item-end>
+      <ion-button (click) = "addLivro(livroName)"><ion-icon name="add"></ion-icon> </ion-button>
+    </div>
+  </ion-item>
+
+  <ion-card  >
+    <ion-card-header>
+        <ion-list>
+          <ion-item *ngFor = "let book of livroList; let i = index">
+            {{book}}
+            <!--<ion-checkbox slot = "start"></ion-checkbox>-->
+            <ion-button  slot = "end" fill ="clear" (click) = "deleteLivro(i)"> 
+              <ion-icon name = "trash"></ion-icon> 
+            </ion-button>
+          </ion-item>   
+        </ion-list>
+    </ion-card-header>
+  </ion-card>
+
+  <!--
+    <div *ngIf="selectedItem" padding>
+      You navigated here from <b>{{selectedItem.title }}</b>
+    </div>
+  -->
+</ion-content>

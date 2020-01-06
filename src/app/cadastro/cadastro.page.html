@@ -1,0 +1,58 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      Citações
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<!--
+<ion-content>
+	<ion-item>
+		<ion-input type="text" placeholder="Enter task" [(ngModel)]="taskName"/>
+		<div >
+			<button ion-button>Add Task</button>
+		</div>
+	</ion-item>
+</ion-content> -->
+
+<ion-content>
+  <!--<ion-item >
+    <ion-input type ="text" placeholder = "Livro e Autor" [(ngModel)] = "livroName"></ion-input>
+    <div class=" item-note" item-end>
+      <ion-button (click) = "addLivro()"><ion-icon name="add"></ion-icon> </ion-button>
+    </div>
+  </ion-item> -->
+  
+
+  <ion-card *ngFor = "let book of livroList; let i = index">
+    <ion-card-header>
+      <ion-card-title>
+        {{book}}
+      </ion-card-title> 
+    </ion-card-header>
+        
+    <ion-input type ="text" placeholder = " Citação" [(ngModel)] = "citacaoName"></ion-input>
+    <ion-button (click) = "addCitacao(i)"><ion-icon name="add"></ion-icon> </ion-button>
+    <ion-list> 
+      <ion-item *ngFor = " let cita of citacaoList">
+        {{cita}}
+        <ion-button  slot = "end" fill ="clear" (click) = "deleteCitacao(i)">
+          <ion-icon name = "trash"></ion-icon>
+        </ion-button>
+      </ion-item>
+    </ion-list>
+       
+      
+    
+  </ion-card  >
+
+ 
+
+</ion-content>
+
+
+
